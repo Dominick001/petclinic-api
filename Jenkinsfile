@@ -23,7 +23,7 @@ pipeline
       steps {
         echo "Getting the API Testing Repo"
         git(
-        url:'git@github.com:ochoadevops/petclinic-api.git',
+        url:'git@github.com:Dominick001/petclinic-api.git',
         credentialsId: 'api',
         branch: "main"
         )
@@ -114,7 +114,7 @@ pipeline
 
                  def FindInstancePublicIP = "";
 
-                 FindInstancePublicIP =  "aws --region us-west-1  ec2 describe-instances --filters \\\'Name=tag:build_id,Values=\\\"TAG_TO_REPLACE\\\"\\\' | grep -i PublicIpAddress | awk '{print \$2 }' | awk '{print substr(\$1,2); }' | awk '{print substr(\$1, 1, length(\$1)-2)}'";
+                 FindInstancePublicIP =  "aws --region us-east-1  ec2 describe-instances --filters \\\'Name=tag:build_id,Values=\\\"TAG_TO_REPLACE\\\"\\\' | grep -i PublicIpAddress | awk '{print \$2 }' | awk '{print substr(\$1,2); }' | awk '{print substr(\$1, 1, length(\$1)-2)}'";
 
                  echo "Original string is :   ${FindInstancePublicIP} ";
 
